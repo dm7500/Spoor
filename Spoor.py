@@ -1,11 +1,11 @@
-#-------------------------------------------------------------------------------
-# Name:       Spoor
-# Purpose:
+# --------------------------------------------------
+# Project: Spoor
+# Name:    Spoor 
+# Created: 6/7/2014
+# Author: David.Martinez
 #
-# Author:      dmartinez7500@gmail.com
-#
-# Created:     05/19/2014
-#-------------------------------------------------------------------------------
+# Created using PyCharm Community Edition
+#--------------------------------------------------
 
 #Import of Python Modules
 import os
@@ -73,6 +73,7 @@ def main_menu():
     else:
         print "Unknown option."
         return False
+        #TODO: Find a way to use these False and True returns
 
 def WHOIS_MENU():
     os.system('cls')
@@ -106,6 +107,7 @@ def DNS_MENU():
     function = int(input("Please enter a DNS option:"))
     if function == 1:
         host = raw_input("Please enter a host name to search for: ")
+        #TODO: Do I need a new function for each record type?
         print "Please choose a DNS record type from the list below: "
         print "     1. NS - Basic Name Server Lookup"
         print "     2. MX - Mail record lookup"
@@ -185,6 +187,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
 
