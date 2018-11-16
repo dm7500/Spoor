@@ -24,7 +24,7 @@ if not os.path.exists(resultsdir):
 def DNS(host, recordtype):
     answers = dns.resolver.query(host, recordtype)
     for rdata in answers:
-        print 'Host', rdata.exchange, 'has preference', rdata.preference
+        print('Host', rdata.exchange, 'has preference', rdata.preference)
 
 
 

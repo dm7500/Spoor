@@ -24,9 +24,9 @@ if not os.path.exists(resultsdir):
 def WHOIS(website):
     try:
         w = whois.whois(website)
-        print "WHOIS options for \'%s\:"
-        print "         1. Print full WHOIS results to file"
-        print "         2. Print only specific information to file"
+        print("WHOIS options for \'%s\:")
+        print("         1. Print full WHOIS results to file")
+        print("         2. Print only specific information to file")
         scope = raw_input("Which option would you prefer? ")
         if scope == 1:
             resultsfile = resultsdir + 'WHOIS - ' + myDateTime + '.log'
@@ -37,7 +37,7 @@ def WHOIS(website):
         elif scope == 2:
             resultsfile = resultsdir + 'WHOIS - ' + myDateTime + '.log'
             rf = open(resultsfile, 'w')
-            print "Please choose which information you'd like to add to the results file: "
+            print("Please choose which information you'd like to add to the results file: ")
             domain_YN = tools.query_yes_no("Domain Name?")
             if domain_YN is True:
                 for domain in w.domain_name:
@@ -66,7 +66,7 @@ def WHOIS(website):
             return False
         narrow = tools.query_yes_no("would you like to display ")
     except TypeError, e:
-        print "Error: %s" % e
+        print("Error: %s" % e)
         return False
 
 

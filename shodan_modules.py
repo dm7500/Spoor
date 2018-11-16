@@ -22,12 +22,12 @@ api = shodan.Shodan(SHODAN_API_KEY)
 def SHODAN_HOSTNAME(IP):
     try:
         host = api.host(IP)
-        print """
+        print ("""
             IP: %s
             Organization: %s
             Operating System: %s
-        """ % (host['ip_str'], host.get('org', 'n/a'), host.get('os', 'n/a'))
-        print
+        """ % (host['ip_str'], host.get('org', 'n/a'), host.get('os', 'n/a')))
+        print()
         banners = tools.query_yes_no("Do you want to print banners for this IP to a file? ")
         if banners is True:
             for item in host['data']:
@@ -51,7 +51,7 @@ def SHODAN_HOSTNAME(IP):
             return False
 
     except shodan.APIError, e:
-        print "Error: %s" % e
+        print("Error: %s" % e)
         input("Press any key to continue...")
         Spoor.SHODAN_MENU()
 
@@ -75,9 +75,9 @@ def SHODAN_KEYWORD(keyword):
             rf.close()
         else:
             for result in results['matches']:
-                print 'IP: %s' % result['ip_str']
-                print result['data']
-                print ''
+                print('IP: %s' % result['ip_str'])
+                print(result['data'])
+                print ('')
         key2mem = tools.query_yes_no("Do you want to keep \'%s\' in memory for future use? " % keyword)
         if key2mem is True:
             global key1
@@ -85,7 +85,7 @@ def SHODAN_KEYWORD(keyword):
             return key1
 
     except shodan.APIError, e:
-        print "Error: %s" % e
+        print ("Error: %s" % e)
         input("Press any key to continue...")
         Spoor.main_menu()
 

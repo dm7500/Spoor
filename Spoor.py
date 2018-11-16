@@ -50,13 +50,13 @@ header = """
 #Main Menu function
 def main_menu():
     os.system('cls')
-    print header
-    print
-    print "Main Menu:"
-    print "         1. SHODAN"
-    print "         2. WHOIS"
-    print "         3. NSLOOKUP/DNS Queries"
-    print "         4. Exit Spoor"
+    print(header)
+    print()
+    print ("Main Menu:")
+    print ("         1. SHODAN")
+    print ("         2. WHOIS")
+    print ("         3. NSLOOKUP/DNS Queries")
+    print ("         4. Exit Spoor")
     function = int(input("Please choose a function: "))
     if function == 1:
         SHODAN_MENU()
@@ -68,20 +68,20 @@ def main_menu():
         DNS_MENU()
         return True
     elif function == 4:
-        print "Thanks for using Spoor."
+        print ("Thanks for using Spoor. Happy hunting.")
         sys.exit()
     else:
-        print "Unknown option."
+        print ("Unknown option.")
         return False
         #TODO: Find a way to use these False and True returns
 
 def WHOIS_MENU():
     os.system('cls')
-    print header
-    print
-    print "WHOIS Menu:"
-    print "         1. Search by site"
-    print "         2. Return to Main Menu"
+    print (header)
+    print()
+    print("WHOIS Menu:")
+    print("         1. Search by site")
+    print("         2. Return to Main Menu")
     function = int(input("Please enter a WHOIS option: "))
     if function == 1:
         host = raw_input('Please enter the site address to search: ')
@@ -99,21 +99,21 @@ def WHOIS_MENU():
 
 def DNS_MENU():
     os.system('cls')
-    print header
-    print
-    print "DNS Menu:"
-    print "     1. Search by host and record type"
-    print "     2. Return to Main Menu"
+    print(header)
+    print()
+    print("DNS Menu:")
+    print("     1. Search by host and record type")
+    print("     2. Return to Main Menu")
     function = int(input("Please enter a DNS option:"))
     if function == 1:
         host = raw_input("Please enter a host name to search for: ")
         #TODO: Do I need a new function for each record type?
-        print "Please choose a DNS record type from the list below: "
-        print "     1. NS - Basic Name Server Lookup"
-        print "     2. MX - Mail record lookup"
-        print "     3. A - Basic reverse lookup, providing an IPv4 address"
-        print "     4. AAAA - Basic reverse lookup, providing an IPv6 address"
-        print "     5. TXT - Search for a text-only record."
+        print("Please choose a DNS record type from the list below: ")
+        print("     1. NS - Basic Name Server Lookup")
+        print("     2. MX - Mail record lookup")
+        print("     3. A - Basic reverse lookup, providing an IPv4 address")
+        print("     4. AAAA - Basic reverse lookup, providing an IPv6 address")
+        print("     5. TXT - Search for a text-only record.")
         rec_choice = int(input("Please enter the record type to search for: "))
         if rec_choice == 1:
             recordtype = 'NS'
@@ -125,7 +125,7 @@ def DNS_MENU():
             recordtype = 'AAAA'
         if rec_choice == 5:
             recordtype = 'TXT'
-        print "Searching for \'%s\' with a record type of \'%s\'..." % (host, recordtype)
+        print("Searching for \'%s\' with a record type of \'%s\'..." % (host, recordtype))
         dns_modules.DNS(host, recordtype)
         raw_input("Press <ENTER> to continue...")
         DNS_MENU()
@@ -137,12 +137,12 @@ def DNS_MENU():
 
 def SHODAN_MENU():
     os.system('cls')
-    print header
-    print
-    print "SHODAN Menu:"
-    print "         1. Search by host"
-    print "         2. Search by keyword"
-    print "         3. Return to Main Menu"
+    print(header)
+    print()
+    print("SHODAN Menu:")
+    print("         1. Search by host")
+    print("         2. Search by keyword")
+    print("         3. Return to Main Menu")
     function = int(input("Please enter a SHODAN search mode: "))
     if function == 1:
         keyword = raw_input('Please enter the host IP to search: ')
@@ -168,7 +168,7 @@ def SHODAN_MENU():
         main_menu()
         return False
     else:
-        print "Unknown option"
+        print("Unknown option")
         return False
 
 def main():
